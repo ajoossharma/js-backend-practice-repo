@@ -57,3 +57,54 @@ let b = 10;
 //const, let, var all 3 are hoisted but let, const are not initialized so they give referenceerror
 //and var will give undefined because it is hoisted and INTITALIZED with undefined 
 
+
+//const -> block scope
+//let   -> block scope
+//var   -> function scope
+
+//IMPORTANT DIFFERENCE 
+//DIFFERENCE BETWEEN Reassignment and Modification 
+
+const obj34 = { name: "John" };
+
+//Modification allowed 
+obj34.name = "Mike";   // modify existing property
+obj34.age = 25;        // add new property
+delete obj34.name;     // remove property
+
+//Reassignment not allowed with const 
+obj34 = { name: "Sarah" }; // ❌ Error
+
+const a = 10;
+a = 7;   // ❌ TypeError
+
+
+let a = 5;
+a = 10; // ✅ allowed
+
+var b = 20;
+b = 30; // ✅ allowed
+
+//with objects 
+
+let obj = { name: "John" };
+
+obj = { name: "Mike" }; // ✅ reassignment allowed
+
+
+var obj2 = { name: "John" };
+
+obj2 = { name: "Mike" }; // ✅ allowed
+
+const realmadrid = () => {
+    var phone = 16;
+}
+
+//this will also give error because 
+//var is function scope 
+//function mei kahi bhi bula lo usse but you cannot call it outside that function 
+
+console.log(phone);
+
+
+

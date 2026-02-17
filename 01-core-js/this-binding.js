@@ -29,3 +29,68 @@ Goalkeeper.mancity()
 
 //this will give an error because mancity is an arrow function //could not bind it's this to anyone 
 
+
+//more examples and more to the point defintion 
+
+//in this file we are mainly coding the difference between arrow function and normal function and the biggest difference is this binding only 
+
+/*
+const obj = {
+
+    name: "John",
+
+    function ajoos(a, b) {
+        console.log("ajoos");
+    },
+
+    const another = ()=> {
+        console.log("laptop");
+    }
+};
+*/
+
+//we only define properties, methods inside an object literal {} 
+// we don't define variables inside an object literal {}
+const obj = {
+  const x = 5,          // ❌
+  let y = 10,           // ❌
+  var z = 15,           // ❌
+  function test() {}    // ❌ (this style)
+};
+
+//correct example 
+const obj7 = {
+  name: "John",        // property
+  age: 25,             // property
+
+  greet() {            // method
+    console.log("Hi");
+  }
+};
+
+
+
+//Allowed ways 
+
+const obj2 = {
+    testy() {
+        console.log("Hello");
+    }
+}
+
+const obj3 = {
+    testy : function() {
+        console.log("Hello");
+    }
+}
+
+const obj4 = {
+    testy : ()=> {
+        console.log("hello");
+    }
+}
+
+//because inside an object we only do 
+//key : value
+
+
