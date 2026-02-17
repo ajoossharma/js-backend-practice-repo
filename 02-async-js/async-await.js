@@ -13,8 +13,12 @@ const getData = async () => {
 
 
 getData();
+console.log(a + b);
+//50 pehle print hua kyunki it is a async function and async function tha toh wait nhi kia usne 
 
 
 
 //await never returns a promise it pauses the execution of the async function 
 // and keeps it paused till it gets the resolved promise and returns value from the resolved promise 
+
+//now writing promises the rawdogging way
