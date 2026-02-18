@@ -1,3 +1,20 @@
+//for normal functions 
+//this depends on how the function is called
+//plain function call function() no this involved
+
+/*This is a plain function call.
+
+So:
+
+In non-strict mode → this = window (browser)
+
+In strict mode → this = undefined
+*/
+
+
+//and for arrow functions they take from the neighbour
+
+
 //normal functions have their own this
 //arrow functions borrow this from the neighbouring scope 
 /*if no neighbouring scope then undefined(strict module)
@@ -51,12 +68,14 @@ const obj = {
 
 //we only define properties, methods inside an object literal {} 
 // we don't define variables inside an object literal {}
+/*
 const obj = {
   const x = 5,          // ❌
   let y = 10,           // ❌
   var z = 15,           // ❌
   function test() {}    // ❌ (this style)
 };
+*/
 
 //correct example 
 const obj7 = {
