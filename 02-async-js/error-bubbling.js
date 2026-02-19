@@ -223,3 +223,49 @@ Finally runs before the stack frame is removed.
 
 //if we return in finally the error is swallowed 
 //and the rest functions are called in the call stack 
+
+//Exercise5
+
+async function level3() {
+  console.log("level3 start");
+  throw new Error("Boom in async level3");
+}
+
+async function level2() {
+  console.log("level2 start");
+  level3(); // notice: NO await
+  console.log("level2 end");
+}
+
+async function level1() {
+  console.log("level1 start");
+  level2(); // NO await
+  console.log("level1 end");
+}
+
+level1();
+console.log("Program end");
+
+
+/*
+========================================
+STACK UNWINDING VS PROMISE REJECTION
+========================================
+
+1) In synchronous code:
+   - `throw` immediately starts stack unwinding.
+   - Current function stops.
+   - Stack frames are removed until a catch is found.
+   - If no catch exists, Node crashes.
+
+2) In async functions:
+   - `throw` does NOT cause stack unwinding.
+   - It becomes `Promise.reject(error)`.
+   - Caller functions continue executing normally.
+
+3) Stack unwinding only happens:
+   - In synchronous throw
+   - Or at an `await` boundary when awaiting a rejected Promise.
+
+Promises themselves do NOT unwind the call stack.
+*/

@@ -51,3 +51,34 @@ They forward the value/error unchanged
 
 No crash occurs
 */
+
+
+//ASYNC ALONE IS FRAUD
+
+/*
+========================================
+WHAT `async` ALONE DOES
+========================================
+
+1) `async` makes the function always return a Promise.
+   - return value → Promise.resolve(value)
+   - throw → Promise.reject(error)
+
+2) `async` alone does NOT:
+   - Pause execution
+   - Delay execution
+   - Make code non-blocking
+   - Cause asynchronous scheduling
+
+3) Execution remains synchronous
+   until the first `await`.
+
+4) `await` creates the real async boundary:
+   - Pauses the async function
+   - Yields control to the event loop
+   - Resumes later via microtask queue
+
+Summary:
+async = Promise semantics
+await = asynchronous suspension
+*/
